@@ -24,11 +24,14 @@ function CabinTable({ searchAthletes }) {
       const createdAt = new Date(cabin.created_at);
       const today = new Date();
 
-      const diffInMilliseconds = Math.abs(today - createdAt);
-      const diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24);
-      const isDebt = diffInDays > 30;
+      createdAt.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
 
-      return isDebt;
+      const diffTime = today - createdAt;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const isDebt = diffDays >= 30;
+
+      return isDebt && createdAt < today;
     });
   }
 
@@ -68,10 +71,9 @@ function CabinTable({ searchAthletes }) {
           <div></div>
           <div>Atleta</div>
           <div>Contacto</div>
-          <div>Data do pagam.</div>
+          <div>Data de Vencimento</div>
           <div>Método de pagam.</div>
           <div>Valor pago</div>
-          <div style={{ color: "transparent" }}>none</div>
         </Table.Header>
 
         <Table.Body

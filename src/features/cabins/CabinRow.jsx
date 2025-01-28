@@ -22,7 +22,6 @@ const Img = styled.img`
 
   @media (min-width: 768px) and (max-width: 1300px) {
     width: 5.3rem;
-    transform: scale(1.5) translateX(-7px);
   }
 `;
 
@@ -69,11 +68,12 @@ const CabinRow = React.memo(({ cabin }) => {
   }
 
   const isDateOlderThan30Days = (date) => {
-    const now = new Date();
-    const givenDate = new Date(date);
-    const diffInTime = now - givenDate;
-    const diffInDays = diffInTime / (1000 * 60 * 60 * 24);
-    return diffInDays > 30;
+    const dateToCheck = new Date(date);
+    const today = new Date();
+    const differenceInTime = today.getTime() - dateToCheck.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+    return differenceInDays > 30;
   };
 
   /* Se o Nome for Makene Neto, Altere sempre a data para a data atual */

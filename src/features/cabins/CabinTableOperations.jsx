@@ -13,16 +13,19 @@ const CounterDebt = styled.div`
     position: absolute;
     right: -7px;
     top: -7px;
-    background-color: #FF004C;
+    background-color: #ff004c;
     border-radius: 50%;
     padding: 1px 6px;
     color: white;
     font-size: 11px;
   }
-`
+`;
 
-function CabinTableOperations({ searchAthletes, setSearchAthletes, expiredCabinsCount }) {
-
+function CabinTableOperations({
+  searchAthletes,
+  setSearchAthletes,
+  expiredCabinsCount,
+}) {
   return (
     <TableOperations>
       <CounterDebt>
@@ -39,7 +42,7 @@ function CabinTableOperations({ searchAthletes, setSearchAthletes, expiredCabins
       <SortBy
         options={[
           { value: "name-asc", label: "Ordenar por nome (A-Z)" },
-          { value: "name-desc", label: "Ordenar por nome (Z-A)" }
+          { value: "name-desc", label: "Ordenar por nome (Z-A)" },
         ]}
       />
 
