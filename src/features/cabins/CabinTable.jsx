@@ -1,61 +1,65 @@
-import Spinner from "../../ui/Spinner"
-import CabinRow from "./CabinRow"
-import { useCabins } from "./useCabins"
-import Table from "../../ui/Table"
-import Menus from "../../ui/Menus"
-import { useSearchParams } from "react-router-dom"
-import Empty from "../../ui/Empty"
+import Spinner from "../../ui/Spinner";
+import CabinRow from "./CabinRow";
+import { useCabins } from "./useCabins";
+import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
+import { useSearchParams } from "react-router-dom";
+import Empty from "../../ui/Empty";
 
 function CabinTable({ searchAthletes }) {
-  const { isLoading, cabins } = useCabins()
-  const [searchParams] = useSearchParams()
+  const { isLoading, cabins } = useCabins();
+  const [searchParams] = useSearchParams();
 
-  if (isLoading) return <Spinner />
-  if (!cabins.length) return <Empty resourceName="atleta" />
+  if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resourceName="atleta" />;
 
   // 1) FILTER
-  const filterValue = searchParams.get("created_at") || "all"
+  const filterValue = searchParams.get("created_at") || "all";
 
-  let filteredCabins
-  if (filterValue === "all") filteredCabins = cabins
+  let filteredCabins;
+  if (filterValue === "all") filteredCabins = cabins;
 
   if (filterValue === "debt") {
     filteredCabins = cabins.filter((cabin) => {
-      const createdAt = new Date(cabin.created_at)
-      const today = new Date()
+      const createdAt = new Date(cabin.created_at);
+      const today = new Date();
 
-      const diffInMilliseconds = Math.abs(today - createdAt)
-      const diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24)
-      const isDebt = diffInDays > 30
+      const diffInMilliseconds = Math.abs(today - createdAt);
+      const diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24);
+      const isDebt = diffInDays > 30;
 
-      return isDebt
-    })
+      return isDebt;
+    });
   }
 
   // 3) SEARCH
-  const searchValue = searchAthletes.toLowerCase()
+  const searchValue = searchAthletes.toLowerCase();
   if (searchValue) {
     filteredCabins = filteredCabins.filter((cabin) => {
-      const name = cabin.name.toLowerCase()
-      return name.includes(searchValue)
-    })
+      const name = cabin.name.toLowerCase();
+      return name.includes(searchValue);
+    });
   }
 
   // 2) SORT
-  let sortedCabins
-  const sortBy = searchParams.get("sortBy") || "name-desc"
-  const [field, direction] = sortBy.split("-")
-  const modifier = direction === "asc" ? 1 : -1
+  let sortedCabins;
+  const sortBy = searchParams.get("sortBy") || "name-desc";
+  const [field, direction] = sortBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
   sortedCabins = filteredCabins.sort((a, b) => {
-    if (a[field] < b[field]) return -1 * modifier
-    if (a[field] > b[field]) return 1 * modifier
-    return 0
-  })
+    if (a[field] < b[field]) return -1 * modifier;
+    if (a[field] > b[field]) return 1 * modifier;
+    return 0;
+  });
 
   // Ordena os itens, colocando os itens com o nome "Makene Neto" no topo
-  const makeneCabins = filteredCabins.filter(cabin => cabin.name === "Makene Neto")
-  const otherCabins = filteredCabins.filter(cabin => cabin.name !== "Makene Neto")
-  sortedCabins = [...makeneCabins, ...otherCabins]
+  const makeneCabins = filteredCabins.filter(
+    (cabin) => cabin.name === "Makene Neto"
+  );
+  const otherCabins = filteredCabins.filter(
+    (cabin) => cabin.name !== "Makene Neto"
+  );
+  sortedCabins = [...makeneCabins, ...otherCabins];
 
   return (
     <Menus>
@@ -67,6 +71,7 @@ function CabinTable({ searchAthletes }) {
           <div>Data do pagam.</div>
           <div>Método de pagam.</div>
           <div>Valor pago</div>
+          <div style={{ color: "transparent" }}>none</div>
         </Table.Header>
 
         <Table.Body
@@ -75,7 +80,7 @@ function CabinTable({ searchAthletes }) {
         />
       </Table>
     </Menus>
-  )
+  );
 }
 
-export default CabinTable
+export default CabinTable;

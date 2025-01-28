@@ -14,6 +14,10 @@ const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
   overflow: scroll;
+
+  @media (min-width: 768px) and (max-width: 1300px) {
+    overflow: hidden;
+  }
 `;
 
 const Container = styled.div`
@@ -22,6 +26,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (min-width: 768px) and (max-width: 1300px) {
+    gap: 1.2rem;
+  }
 `;
 
 function AppLayout() {
