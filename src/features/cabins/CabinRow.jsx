@@ -38,8 +38,8 @@ const Cabin = styled.div`
 
 const Price = styled.div`
     font-family: "Sono";
-  font-weight: 500;
-  color: var(--color-green-700);
+    font-weight: 500;
+    color: var(--color-green-700);
 `;
 
 const CabinRow = React.memo(({ cabin }) => {

@@ -8,22 +8,22 @@ import CabinTableOperations from "../features/cabins/CabinTableOperations";
 import { useCabins } from "../features/cabins/useCabins";
 
 function Cabins() {
-  const { cabins } = useCabins();
-  const [searchAthletes, setSearchAthletes] = useState("");
+  const { cabins } = useCabins()
+  const [searchAthletes, setSearchAthletes] = useState('')
 
-  const expiredCabinsCount = (cabins || []).filter((cabin) => {
+  const expiredCabinsCount = (cabins || []).filter(cabin => {
     const createdAt = new Date(cabin.created_at);
-    const today = new Date();
+    const today = new Date()
 
-    createdAt.setHours(0, 0, 0, 0);
-    today.setHours(0, 0, 0, 0);
+    createdAt.setHours(0, 0, 0, 0)
+    today.setHours(0, 0, 0, 0)
 
-    const diffTime = today - createdAt;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const isDebt = diffDays >= 30;
+    const diffTime = today - createdAt
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+    const isDebt = diffDays >= 30
 
-    return isDebt && createdAt < today;
-  }).length;
+    return isDebt && createdAt < today
+  }).length
 
   return (
     <>
