@@ -22,7 +22,7 @@ function SignupForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form type="medium" onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
         <Input
           type="text"
@@ -89,11 +89,7 @@ function SignupForm() {
         >
           Cancelar
         </Button>
-        <Button
-          variation="primary"
-          size="medium"
-          disabled={isLoading}
-        >
+        <Button variation="primary" size="medium" disabled={isLoading}>
           Criar novo usuário
         </Button>
       </FormRow>

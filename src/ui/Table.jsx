@@ -23,29 +23,29 @@ const CommonRow = styled.div`
 `;
 
 const StyledHeader = styled(CommonRow)`
-    width: 63%;
-    position: fixed;
-    margin-top: -1px;
-    z-index: 2;
-    padding: 1.6rem 2.4rem;
-    background: rgba(229,231,235,0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-grey-200);
-    border-radius: 7px 7px 0 0;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    font-weight: 600;
-    color: var(--color-grey-600);
+  width: 63%;
+  position: fixed;
+  margin-top: -1px;
+  z-index: 2;
+  padding: 1.6rem 2.4rem;
+  background: var(--cabin-header);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-grey-200);
+  border-radius: 7px 7px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+  color: var(--color-grey-600);
 
-    @media (min-width: 768px) and (max-width: 1300px) {
-      width: 74%;
-      margin-left: -1px;
-      padding: 1.2rem 2.4rem;
+  @media (min-width: 768px) and (max-width: 1300px) {
+    width: 74%;
+    margin-left: -1px;
+    padding: 1.2rem 2.4rem;
 
-      & div {
-        font-size: 11px;
-      }
+    & div {
+      font-size: 11px;
     }
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -130,7 +130,8 @@ function Row({ children }) {
 }
 
 function Body({ data, render }) {
-  if (!data.length) return <Empty>Nenhum atleta para mostrar no momento.</Empty>;
+  if (!data.length)
+    return <Empty>Nenhum atleta para mostrar no momento.</Empty>;
 
   return <StyledBody>{data.map(render)}</StyledBody>;
 }
