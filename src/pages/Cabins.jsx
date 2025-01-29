@@ -1,18 +1,16 @@
-import { useState } from "react";
-import styled from "styled-components";
 /* eslint-disable no-unused-expressions */
 import CabinTable from "../features/cabins/CabinTable";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import AddCabin from "../features/cabins/AddCabin";
 import CabinTableOperations from "../features/cabins/CabinTableOperations";
+import { useState } from "react";
 import { useCabins } from "../features/cabins/useCabins";
 
 function Cabins() {
   const { cabins } = useCabins();
   const [searchAthletes, setSearchAthletes] = useState("");
 
-  // console.log(cabins)
   const expiredCabinsCount = (cabins || []).filter((cabin) => {
     const createdAt = new Date(cabin.created_at);
     const today = new Date();
@@ -27,14 +25,8 @@ function Cabins() {
     return isDebt && createdAt < today;
   }).length;
 
-  const Cabin = styled.main`
-    @media (min-width: 768px) and (max-width: 1300px) {
-      overflow: hidden;
-    }
-  `;
-
   return (
-    <Cabin>
+    <>
       <Row type="horizontal_v1">
         <Heading as="h1">Todos Atletas</Heading>
         <CabinTableOperations
@@ -48,7 +40,7 @@ function Cabins() {
         <CabinTable searchAthletes={searchAthletes} />
         <AddCabin />
       </Row>
-    </Cabin>
+    </>
   );
 }
 
