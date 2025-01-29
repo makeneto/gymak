@@ -11,9 +11,19 @@ const Form = styled.form`
     `}
 
   ${(props) =>
+    props.type === "medium" &&
+    css`
+      width: 73rem;
+      padding: 2.4rem 4rem;
+      background-color: var(--color-grey-0);
+      border: 1px solid var(--color-grey-100);
+      border-radius: var(--border-radius-md);
+    `}
+
+  ${(props) =>
     props.type === "modal" &&
     css`
-          width: 61rem;
+      width: 61rem;
     `}
     
   overflow: hidden;

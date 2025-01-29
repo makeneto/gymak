@@ -10,7 +10,6 @@ import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdateUserDataForm() {
-  // We don't need the loading state, and can immediately use the user data, because we know that it has already been loaded at this point
   const {
     user: {
       email,
@@ -43,12 +42,12 @@ function UpdateUserDataForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormRow label="Email address">
+    <Form type="medium" onSubmit={handleSubmit}>
+      <FormRow label="Email">
         <Input value={email} disabled />
       </FormRow>
 
-      <FormRow label="Full name">
+      <FormRow label="Nome completo">
         <Input
           type="text"
           value={fullName}
@@ -58,7 +57,7 @@ function UpdateUserDataForm() {
         />
       </FormRow>
 
-      <FormRow label="Avatar image">
+      <FormRow label="Foto de perfil">
         <FileInput
           id="avatar"
           accept="image/*"
@@ -71,12 +70,15 @@ function UpdateUserDataForm() {
         <Button
           type="reset"
           variation="secondary"
+          size="medium"
           disabled={isUpdating}
           onClick={handleCancel}
         >
-          Cancel
+          Cancelar
         </Button>
-        <Button disabled={isUpdating}>Update account</Button>
+        <Button variation="primary" size="medium" disabled={isUpdating}>
+          Atualizar conta
+        </Button>
       </FormRow>
     </Form>
   );

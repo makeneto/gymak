@@ -17,15 +17,14 @@ function UpdatePasswordForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form type="medium" onSubmit={handleSubmit(onSubmit)}>
       <FormRow
-        label="New password (min 8 chars)"
+        label="Nova password (min 8 caract)"
         error={errors?.password?.message}
       >
         <Input
           type="password"
           id="password"
-          autoComplete="current-password"
           disabled={isUpdating}
           {...register("password", {
             required: "This field is required",
@@ -38,12 +37,11 @@ function UpdatePasswordForm() {
       </FormRow>
 
       <FormRow
-        label="Confirm password"
+        label="Confirmar password"
         error={errors?.passwordConfirm?.message}
       >
         <Input
           type="password"
-          autoComplete="new-password"
           id="passwordConfirm"
           disabled={isUpdating}
           {...register("passwordConfirm", {
@@ -54,10 +52,17 @@ function UpdatePasswordForm() {
         />
       </FormRow>
       <FormRow>
-        <Button onClick={reset} type="reset" variation="secondary">
-          Cancel
+        <Button
+          onClick={reset}
+          type="reset"
+          variation="secondary"
+          size="medium"
+        >
+          Cancelar
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        <Button variation="primary" size="medium" disabled={isUpdating}>
+          Atualizar password
+        </Button>
       </FormRow>
     </Form>
   );

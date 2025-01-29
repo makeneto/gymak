@@ -60,13 +60,19 @@ function MainNav() {
     <nav>
       <NavList>
         <li>
+          <StyledNavLink to="/admin">
+            <HiOutlineChartBar />
+            <span>Painel Admin</span>
+          </StyledNavLink>
+        </li>
+        <li>
           <StyledNavLink to="/cabins">
             <HiOutlineHomeModern />
             <span>Atletas</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/account">
+          <StyledNavLink to="/users">
             <HiOutlineUsers />
             <span>Conta</span>
           </StyledNavLink>

@@ -26,7 +26,7 @@ function LoginForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form type="regular" onSubmit={handleSubmit}>
       <FormRowVertical label="Email address">
         <Input
           type="email"
@@ -50,8 +50,8 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical>
-        <Button size="large" disabled={isLoading}>
-          {!isLoading ? "Log in" : <SpinnerMini />}
+        <Button variation="primary" size="large" disabled={isLoading}>
+          {!isLoading ? "Entrar" : <SpinnerMini />}
         </Button>
       </FormRowVertical>
     </Form>
