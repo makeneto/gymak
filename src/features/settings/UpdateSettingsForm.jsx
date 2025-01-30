@@ -28,9 +28,9 @@ function UpdateSettingsForm() {
 
   return (
     <Form type="medium">
-      <FormRow label="Minimum nights/booking">
+      <FormRow label="Nome do ginásio">
         <Input
-          type="number"
+          type="text"
           id="min-nights"
           defaultValue={minBookingLength}
           disabled={isUpdating}
@@ -38,9 +38,9 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Maximum nights/booking">
+      <FormRow label="Endereço do ginásio">
         <Input
-          type="number"
+          type="text"
           id="max-nights"
           defaultValue={maxBookingLength}
           disabled={isUpdating}
@@ -48,7 +48,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Maximum guests/booking">
+      <FormRow label="Horário de funcionamento">
         <Input
           type="number"
           id="max-guests"
@@ -58,7 +58,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
 
-      <FormRow label="Breakfast price">
+      <FormRow label="Tema (Claro/Escuro)">
         <Input
           type="number"
           id="breakfast-price"
