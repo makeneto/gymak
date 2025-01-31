@@ -4,30 +4,12 @@ import MainNav from "./MainNav";
 import { HiOutlineLockClosed } from "react-icons/hi2";
 import { useState } from "react";
 import { BsMenuButton } from "react-icons/bs";
-import { useEffect } from "react";
 
 function Sidebar() {
-  const [menu, setMenu] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 832) {
-        setMenu(true);
-      } else {
-        setMenu(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [menu, setMenu] = useState(window.innerWidth > 832);
 
   function handleMenu() {
-    setMenu(!menu)
+    setMenu(!menu);
   }
 
   const StyledSidebar = styled.aside`
