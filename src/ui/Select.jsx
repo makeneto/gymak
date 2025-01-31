@@ -13,6 +13,10 @@ const StyledSelect = styled.select`
   font-weight: 500;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
+
+  @media (min-width: 768px) and (orientation: landscape) {
+    font-size: 1.2rem;
+  }
 `;
 
 function Select({ options, value, onChange, ...props }) {

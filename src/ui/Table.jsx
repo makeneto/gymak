@@ -7,24 +7,28 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
-  overflow: hidden;
 `;
 
 const CommonRow = styled.div`
   display: grid;
   grid-template-columns: 0.6fr 1.5fr 1.2fr 1.8fr 1.2fr 1fr 0.2fr;
-  column-gap: 2.4rem;
+  column-gap: 2.8rem;
   align-items: center;
   transition: none;
 
   @media (min-width: 768px) and (max-width: 1300px) {
     grid-template-columns: 0.6fr 1.5fr 1.1fr 2.4fr 1.4fr 1fr 0.2fr;
   }
+  
+  @media (max-width: 832px) {
+    grid-template-columns: 1.3fr 4fr 1.2fr 4.4fr 3fr 1fr 0.1fr;
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
     width: 63%;
     position: fixed;
+    margin-left: -1px;
     margin-top: -1px;
     z-index: 2;
     padding: 1.6rem 2.4rem;
@@ -44,6 +48,18 @@ const StyledHeader = styled(CommonRow)`
 
       & div {
         font-size: 11px;
+      }
+    }
+
+    @media (max-width: 832px) {
+      display: flex;
+      justify-content: start;
+      width: 100%;
+      position: sticky;
+      
+
+      & div {
+        font-size: 8px;
       }
     }
 `;
@@ -70,6 +86,10 @@ const StyledBody = styled.section`
   @media (min-width: 768px) and (max-width: 1300px) {
     margin: 4.4rem 0 0.4rem;
   }
+
+  @media (max-width: 832px) {
+    margin: 0.4rem 0 0.4rem;
+  }
 `;
 
 const Footer = styled.footer`
@@ -93,6 +113,7 @@ const Empty = styled.p`
 
 const CabinsContainer = styled.div`
   max-height: 66dvh;
+  margin-top: 3%;
   overflow-y: auto;
 
   @media (min-width: 768px) and (max-width: 1300px) {

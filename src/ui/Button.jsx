@@ -18,6 +18,11 @@ const sizes = {
     font-size: 1.4rem;
     padding: 1.2rem 1.6rem;
     font-weight: 500;
+
+    @media (max-width: 832px) {
+      font-size: 1.2rem;
+      padding: 0.9rem 1.6rem;
+    }
   `,
   large: css`
     font-size: 1.6rem;

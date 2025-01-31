@@ -4,7 +4,7 @@ import { useCabins } from "./useCabins"
 import Table from "../../ui/Table"
 import Menus from "../../ui/Menus"
 import { useSearchParams } from "react-router-dom"
-import Empty from "../../ui/Empty"
+import styled from "styled-components"
 
 function CabinTable({ searchAthletes }) {
   const { isLoading, cabins } = useCabins()
@@ -60,16 +60,36 @@ function CabinTable({ searchAthletes }) {
   const otherCabins = filteredCabins.filter(cabin => cabin.name !== "Makene Neto")
   sortedCabins = [...makeneCabins, ...otherCabins]
 
+  const Empty = styled.div`
+    margin-right: 6%;
+  `
+
+  const Athlete = styled.div`
+    margin-right: 10.7%;
+  `
+  const Contact = styled.div`
+    margin-right: 1%;
+  `
+  const DatePay = styled.div`
+    width: 40%;
+  `
+  const MethodPay = styled.div`
+    width: 38%;
+  `
+  const Amount = styled.div`
+    width: 46%;
+  `
+
   return (
     <Menus>
       <Table>
         <Table.Header>
-          <div></div>
-          <div>Atleta</div>
-          <div>Contacto</div>
-          <div>Data de Vencimento</div>
-          <div>Método de pagam.</div>
-          <div>Valor pago</div>
+          <Empty></Empty>
+          <Athlete>Atleta</Athlete>
+          <Contact>Contacto</Contact>
+          <DatePay>Data de Vencimento</DatePay>
+          <MethodPay>Método de pagam.</MethodPay>
+          <Amount>Valor pago</Amount>
         </Table.Header>
 
         <Table.Body

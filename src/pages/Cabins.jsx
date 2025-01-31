@@ -27,7 +27,7 @@ function Cabins() {
 
   return (
     <>
-      <Row type="horizontal_v1">
+      <Row type={window.matchMedia("(max-width: 832px)").matches ? "vertical" : "horizontal_v1"}>
         <Heading as="h1">Todos Atletas</Heading>
         <CabinTableOperations
           searchAthletes={searchAthletes}

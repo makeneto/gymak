@@ -12,12 +12,21 @@ const StyledAppLayout = styled.div`
   @media (min-width: 768px) and (max-width: 1300px) {
     grid-template-columns: 23.4rem 1fr;
   }
+
+  @media (max-width: 832px) {
+    grid-template-columns: 0 1fr;
+  }
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
   overflow: ${(props) => (props.isCabinsPage ? 'hidden' : 'scroll')};
+  
+  @media (max-width: 832px) {
+    overflow: scroll;
+    padding: 3rem 3.8rem 3.4rem;
+  }
 `;
 
 const Container = styled.div`

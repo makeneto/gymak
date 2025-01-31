@@ -14,6 +14,13 @@ const StyledModal = styled.div`
     box-shadow: 0 0 7rem 17px rgba(0, 0, 0, 0.12);
     padding: 4.2rem 4.4rem;
     transition: all 0.5s;
+
+    @media (max-width: 832px) {
+        top: 47%;
+        left: 50%;
+        overflow: scroll;
+        height: 88dvh;
+    }
 `;
 
 const Overlay = styled.div`
@@ -26,6 +33,10 @@ const Overlay = styled.div`
   backdrop-filter: blur(4px);
   z-index: 1000;
   transition: all 0.5s;
+
+  @media (max-width: 832px) {
+    position: absolute;
+  }
 `;
 
 const Button = styled.button`

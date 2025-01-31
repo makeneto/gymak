@@ -56,29 +56,29 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-function MainNav() {
+function MainNav({ handleMenu }) {
   return (
     <nav>
       <NavList>
-        <li>
+        <li onClick={handleMenu}>
           <StyledNavLink to="/admin">
             <HiOutlineChartBar />
             <span>Painel Admin</span>
           </StyledNavLink>
         </li>
-        <li>
+        <li onClick={handleMenu}>
           <StyledNavLink to="/cabins">
             <HiOutlineHomeModern />
             <span>Atletas</span>
           </StyledNavLink>
         </li>
-        <li>
+        <li onClick={handleMenu}>
           <StyledNavLink to="/users">
             <HiOutlineUsers />
             <span>Usuários</span>
           </StyledNavLink>
         </li>
-        <li>
+        <li onClick={handleMenu}>
           <StyledNavLink to="/settings">
             <HiOutlineCog6Tooth />
             <span>Configurações</span>

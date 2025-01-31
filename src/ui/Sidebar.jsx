@@ -1,23 +1,68 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
-
-const StyledSidebar = styled.aside`
-  background-color: var(--color-grey-0);
-  padding: 3.2rem 2.4rem;
-  border-right: 1px solid var(--color-grey-100);
-
-  grid-row: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-`;
+import { HiOutlineLockClosed } from "react-icons/hi2";
+import { useState } from "react";
+import { BsMenuButton } from "react-icons/bs";
+import { useEffect } from "react";
 
 function Sidebar() {
+  const [menu, setMenu] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 832) {
+        setMenu(true);
+      } else {
+        setMenu(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function handleMenu() {
+    setMenu(!menu)
+  }
+
+  const StyledSidebar = styled.aside`
+    background-color: var(--color-grey-0);
+    padding: 3.2rem 2.4rem;
+    border-right: 1px solid var(--color-grey-100);
+    
+    grid-row: ${menu ? '1 / -1' : ''};
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    ${menu && `
+      & > *:not(:first-child) {
+        display: none;
+      }
+    `}
+
+    @media (max-width: 832px) {
+      height: 200dvh;
+      padding: 3.2rem 2.4rem 5rem;
+    }
+  `;
+
   return (
     <StyledSidebar>
+      {window.innerWidth <= 832 && (
+        !menu ? (
+          <HiOutlineLockClosed onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.3rem", width: "24px", height: "24px", cursor: "pointer" }} />
+        ) : (
+          <BsMenuButton onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.5rem", width: "20px", height: "20px", cursor: "pointer" }} />
+        )
+      )}
       <Logo />
-      <MainNav />
+      <MainNav handleMenu={handleMenu} />
     </StyledSidebar>
   );
 }

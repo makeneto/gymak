@@ -1,5 +1,5 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import Heading from "../ui/Heading"
+import Row from "../ui/Row"
 
 export default function Home() {
     return (
@@ -8,5 +8,5 @@ export default function Home() {
                 <Heading as="h1">Dashboard</Heading>
             </Row>
         </>
-    );
+    )
 }

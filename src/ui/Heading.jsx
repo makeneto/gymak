@@ -19,6 +19,10 @@ const Heading = styled.h1`
         transform: translateY(-50%);
         right: -29px;
       }
+
+      @media (max-width: 832px) {
+        font-size: 2.7rem;
+      }
     `
   }
 

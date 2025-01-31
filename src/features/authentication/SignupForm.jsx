@@ -6,7 +6,6 @@ import Input from "../../ui/Input";
 import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
-
 function SignupForm() {
   const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
