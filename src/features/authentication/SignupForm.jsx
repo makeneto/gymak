@@ -27,7 +27,7 @@ function SignupForm() {
           type="text"
           id="fullName"
           disabled={isLoading}
-          {...register("fullName", { required: "This field is required" })}
+          {...register("fullName", { required: "Este Campo é obrigatório" })}
         />
       </FormRow>
 
@@ -37,10 +37,10 @@ function SignupForm() {
           id="email"
           disabled={isLoading}
           {...register("email", {
-            required: "This field is required",
+            required: "Este Campo é obrigatório",
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: "Please provide a valid email address",
+              message: "Por favor, forneça um email válido",
             },
           })}
         />
@@ -55,10 +55,10 @@ function SignupForm() {
           id="password"
           disabled={isLoading}
           {...register("password", {
-            required: "This field is required",
+            required: "Este Campo é obrigatório",
             minLength: {
               value: 8,
-              message: "Password needs a minimum of 8 characters",
+              message: "Password precisa no mínimo de 8 caracteres",
             },
           })}
         />
@@ -70,9 +70,9 @@ function SignupForm() {
           id="passwordConfirm"
           disabled={isLoading}
           {...register("passwordConfirm", {
-            required: "This field is required",
+            required: "Este Campo é obrigatório",
             validate: (value) =>
-              value === getValues().password || "Passwords need to match",
+              value === getValues().password || "As passwords precisam ser iguais",
           })}
         />
       </FormRow>
@@ -93,7 +93,7 @@ function SignupForm() {
           size="medium"
           disabled={isLoading}
         >
-          Criar novo usuário
+          Criar novo admin
         </Button>
       </FormRow>
     </Form>
