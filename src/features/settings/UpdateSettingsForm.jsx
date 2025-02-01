@@ -2,17 +2,19 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import Spinner from "../../ui/Spinner";
+import { useCabins } from "../cabins/useCabins";
 import { useSettings } from "./useSettings";
 import { useUpdateSetting } from "./useUpdateSetting";
 
 function UpdateSettingsForm() {
+  const { cabins } = useCabins()
+
   const {
     isLoading,
     settings: {
-      minBookingLength,
-      maxBookingLength,
-      maxGuestsPerBooking,
-      breakfastPrice,
+      gymName,
+      gymAddress,
+      gymTiming,
     } = {},
   } = useSettings();
   const { isUpdating, updateSetting } = useUpdateSetting();
@@ -31,40 +33,39 @@ function UpdateSettingsForm() {
       <FormRow label="Nome do ginásio">
         <Input
           type="text"
-          id="min-nights"
-          defaultValue={minBookingLength}
+          id="gymName"
+          defaultValue={gymName}
           disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "minBookingLength")}
+          onBlur={(e) => handleUpdate(e, "gymName")}
         />
       </FormRow>
 
       <FormRow label="Endereço do ginásio">
         <Input
           type="text"
-          id="max-nights"
-          defaultValue={maxBookingLength}
+          id="gymAddress"
+          defaultValue={gymAddress}
           disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "maxBookingLength")}
+          onBlur={(e) => handleUpdate(e, "gymAddress")}
         />
       </FormRow>
 
-      <FormRow label="Horário de funcionamento">
+      <FormRow label="Horas de funcionamento">
         <Input
-          type="number"
-          id="max-guests"
-          defaultValue={maxGuestsPerBooking}
+          type="text"
+          id="gymTiming"
+          defaultValue={gymTiming}
           disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "maxGuestsPerBooking")}
+          onBlur={(e) => handleUpdate(e, "gymTiming")}
         />
       </FormRow>
 
-      <FormRow label="Tema (Claro/Escuro)">
+      <FormRow label="Quantidade de Atletas">
         <Input
-          type="number"
-          id="breakfast-price"
-          defaultValue={breakfastPrice}
-          disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "breakfastPrice")}
+          type="text"
+          id="numAthletes"
+          defaultValue={`${cabins.length} Atletas`}
+          disabled
         />
       </FormRow>
     </Form>

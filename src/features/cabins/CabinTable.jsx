@@ -61,23 +61,40 @@ function CabinTable({ searchAthletes }) {
   sortedCabins = [...makeneCabins, ...otherCabins]
 
   const Empty = styled.div`
-    margin-right: 6%;
+
+    @media (max-width: 832px) {
+        margin-right: 6%;
+    }
   `
 
   const Athlete = styled.div`
-    margin-right: 10.7%;
+
+    @media (max-width: 832px) {
+      margin-right: 10.7%;
+    }
   `
   const Contact = styled.div`
-    margin-right: 1%;
+
+    @media (max-width: 832px) {
+      margin-right: 1%;
+    }
   `
   const DatePay = styled.div`
-    width: 40%;
+    @media (max-width: 832px) {
+      width: 40%;
+    }
   `
   const MethodPay = styled.div`
-    width: 38%;
+
+    @media (max-width: 832px) {
+      width: 38%;
+    }
   `
   const Amount = styled.div`
-    width: 46%;
+
+    @media (max-width: 832px) {
+      width: 46%;
+    }
   `
 
   return (

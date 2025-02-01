@@ -1,15 +1,17 @@
-import styled from "styled-components";
-import Logo from "./Logo";
-import MainNav from "./MainNav";
-import { HiOutlineLockClosed } from "react-icons/hi2";
-import { useState } from "react";
-import { BsMenuButton } from "react-icons/bs";
+import styled from "styled-components"
+import Logo from "./Logo"
+import MainNav from "./MainNav"
+import { HiOutlineLockClosed } from "react-icons/hi2"
+import { useState } from "react"
+import { BsMenuButton } from "react-icons/bs"
 
 function Sidebar() {
-  const [menu, setMenu] = useState(window.innerWidth > 832);
+  const [menu, setMenu] = useState(true)
 
   function handleMenu() {
-    setMenu(!menu);
+    if (window.innerWidth <= 832) {
+      setMenu(!menu)
+    }
   }
 
   const StyledSidebar = styled.aside`
@@ -22,17 +24,12 @@ function Sidebar() {
     flex-direction: column;
     gap: 3.2rem;
 
-    ${menu && `
-      & > *:not(:first-child) {
-        display: none;
-      }
-    `}
 
     @media (max-width: 832px) {
       height: 200dvh;
       padding: 3.2rem 2.4rem 5rem;
     }
-  `;
+  `
 
   return (
     <StyledSidebar>
@@ -43,10 +40,11 @@ function Sidebar() {
           <BsMenuButton onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.5rem", width: "20px", height: "20px", cursor: "pointer" }} />
         )
       )}
+
       <Logo />
       <MainNav handleMenu={handleMenu} />
     </StyledSidebar>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

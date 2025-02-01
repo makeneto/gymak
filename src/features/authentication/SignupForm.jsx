@@ -22,7 +22,7 @@ function SignupForm() {
 
   return (
     <Form type="medium" onSubmit={handleSubmit(onSubmit)}>
-      <FormRow label="Full name" error={errors?.fullName?.message}>
+      <FormRow label="Nome Completo" error={errors?.fullName?.message}>
         <Input
           type="text"
           id="fullName"
@@ -31,7 +31,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="Email address" error={errors?.email?.message}>
+      <FormRow label="Email" error={errors?.email?.message}>
         <Input
           type="email"
           id="email"
@@ -47,7 +47,7 @@ function SignupForm() {
       </FormRow>
 
       <FormRow
-        label="Password (min 8 characters)"
+        label="Password (min 8 caracteres)"
         error={errors?.password?.message}
       >
         <Input
@@ -64,7 +64,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="Repeat password" error={errors?.passwordConfirm?.message}>
+      <FormRow label="Repetir password" error={errors?.passwordConfirm?.message}>
         <Input
           type="password"
           id="passwordConfirm"
@@ -86,7 +86,7 @@ function SignupForm() {
           disabled={isLoading}
           onClick={reset}
         >
-          Cancelar
+          Limpar
         </Button>
         <Button
           variation="primary"

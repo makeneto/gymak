@@ -14,7 +14,7 @@ const StyledSelect = styled.select`
   box-shadow: var(--shadow-sm);
   cursor: pointer;
 
-  @media (min-width: 768px) and (orientation: landscape) {
+  @media (max-width: 830px) {
     font-size: 1.2rem;
   }
 `;
