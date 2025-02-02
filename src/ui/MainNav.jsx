@@ -63,7 +63,7 @@ function MainNav({ handleMenu }) {
         <li onClick={handleMenu}>
           <StyledNavLink to="/admin">
             <HiOutlineChartBar />
-            <span>Painel Admin</span>
+            <span>Dashboard</span>
           </StyledNavLink>
         </li>
         <li onClick={handleMenu}>

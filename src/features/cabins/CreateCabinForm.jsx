@@ -138,7 +138,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           type="number"
           id="amountPaid"
           disabled={isWorking}
-          defaultValue={10000}
+          defaultValue={11000}
           {...register("amountPaid", {
             required: "Este campo é obrigatório",
           })}

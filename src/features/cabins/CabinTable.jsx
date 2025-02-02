@@ -55,11 +55,6 @@ function CabinTable({ searchAthletes }) {
     return 0
   })
 
-  // Ordena os itens, colocando os itens com o nome "Makene Neto" no topo
-  const makeneCabins = filteredCabins.filter(cabin => cabin.name === "Makene Neto")
-  const otherCabins = filteredCabins.filter(cabin => cabin.name !== "Makene Neto")
-  sortedCabins = [...makeneCabins, ...otherCabins]
-
   const Empty = styled.div`
 
     @media (max-width: 832px) {

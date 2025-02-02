@@ -10,10 +10,10 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
-import Home from "./pages/Home";
 import Account from "./pages/Account";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,7 +40,7 @@ function App() {
               }
             >
               <Route index element={<Navigate replace to="admin" />} />
-              <Route path="admin" element={<Home />} />
+              <Route path="admin" element={<Dashboard />} />
               <Route path="cabins" element={<Cabins />} />
               <Route path="users" element={<Users />} />
               <Route path="account" element={<Account />} />
