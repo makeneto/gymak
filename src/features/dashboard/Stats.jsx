@@ -8,9 +8,19 @@ import { formatCurrency } from "../../utils/helpers"
 import { HiOutlineLightningBolt } from "react-icons/hi"
 import { useCabins } from "../cabins/useCabins"
 import SpinnerMini from "../../ui/SpinnerMini"
+import styled from "styled-components"
+import { useMediaQuery } from 'react-responsive'
+
+const StatGrid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+`
 
 function Stats() {
   const { cabins, isLoading } = useCabins()
+  const isMobile = useMediaQuery({ maxWidth: 832 })
 
   const activeAthletes = isLoading ? <SpinnerMini /> : cabins.filter(cabin => {
     const today = new Date()
@@ -53,7 +63,36 @@ function Stats() {
 
 
   return (
-    <>
+    // <></>
+
+    isMobile ? (
+      <StatGrid>
+        <Stat
+          title="Atletas ativos"
+          color="blue"
+          icon={<HiOutlineLightningBolt />}
+          value={activeAthletes}
+        />
+        <Stat
+          title="Atletas inativos"
+          color="red"
+          icon={<HiOutlineXCircle />}
+          value={inactiveAthletes}
+        />
+        <Stat
+          title="Atletas novos"
+          color="indigo"
+          icon={<HiOutlineUserGroup />}
+          value={newAthletes}
+        />
+        <Stat
+          title="Orçamento mensal"
+          color="green"
+          icon={<HiOutlineBanknotes />}
+          value={formatCurrency(monthlyBudget)}
+        />
+      </StatGrid>
+    ) : <>
       <Stat
         title="Atletas ativos"
         color="blue"
@@ -81,5 +120,11 @@ function Stats() {
     </>
   )
 }
+
+// display: grid;
+// grid-template-columns: 1fr 1fr 1fr 1fr;
+// grid-template-rows: auto 36rem auto;
+// gap: 1.3rem;
+
 
 export default Stats

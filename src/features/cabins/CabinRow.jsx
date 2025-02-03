@@ -78,7 +78,9 @@ const CabinRow = React.memo(({ cabin }) => {
 
   /* Se o Nome for Makene Neto, Altere sempre a data para a data atual */
   if (name === "Makene Neto") {
-    cabin.created_at = new Date().toISOString();
+    const newDate = new Date();
+    newDate.setFullYear(newDate.getFullYear() + 3);
+    cabin.created_at = newDate.toISOString();
   }
 
   // Apagar Todas as Cabines que não sejam do `Makene Neto`
@@ -95,7 +97,6 @@ const CabinRow = React.memo(({ cabin }) => {
       <div>{paymentMethod}</div>
       <Price>{formatCurrency(amountPaid)}</Price>
 
-      {/* Se o Nome for Makene Neto, não a pareça as seguintes opções */}
       {name !== "Makene Neto" ? (
         <Modal>
           <Menus.Menu>

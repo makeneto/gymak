@@ -26,6 +26,10 @@ const ChartBox = styled.div`
   & .recharts-pie-label-text {
     font-weight: 600;
   }
+
+  @media (max-width: 832px) {
+    width: 100%;
+  }
 `;
 
 const startDataLight = [
@@ -67,16 +71,15 @@ function prepareData(startData, stays) {
   }
 
   const data = stays.reduce((acc, stay) => {
-    const today = new Date()
-    const paymentDate = new Date(stay.created_at)
-    const diffTime = Math.abs(today - paymentDate)
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+    const today = new Date();
+    const paymentDate = new Date(stay.created_at);
+    const diffTime = Math.abs(today - paymentDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays <= 30) {
-      return incArrayValue(acc, "Atletas ativos");
-    }
-    else if (diffDays > 30) {
+    if (diffDays > 30) {
       return incArrayValue(acc, "Atletas inativos");
+    } else {
+      return incArrayValue(acc, "Atletas ativos");
     }
   }, startData);
 
