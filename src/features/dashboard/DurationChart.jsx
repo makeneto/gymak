@@ -95,7 +95,7 @@ function DurationChart({ confirmedStays }) {
     <ChartBox>
       <Heading as="h2">Status dos Atletas</Heading>
       <ResponsiveContainer width="100%" height={240}>
-        <PieChart>
+        <PieChart width="108%">
           <Pie
             data={data}
             nameKey="duration"
@@ -118,7 +118,7 @@ function DurationChart({ confirmedStays }) {
           <Legend
             verticalAlign="middle"
             align="right"
-            width="30%"
+            width="40%"
             layout="vertical"
             iconSize={15}
             iconType="circle"

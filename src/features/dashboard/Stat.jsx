@@ -34,7 +34,7 @@ const Icon = styled.div`
 
 const Title = styled.h5`
   align-self: end;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.4px;
   font-weight: 600;
@@ -42,7 +42,7 @@ const Title = styled.h5`
 `;
 
 const Value = styled.p`
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   line-height: 1;
   font-weight: 500;
 

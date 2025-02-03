@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import supabase from "../../services/supabase";
 import { useMediaQuery } from 'react-responsive'
 import { useState } from "react";
@@ -25,19 +25,35 @@ const StyledTodayItem = styled.li`
   @media (max-width: 832px) {
     grid-template-columns: 8rem 18rem 10rem 11rem 1rem 11rem 0;
   }
+
+  @media (min-width: 833px) and (max-width: 1024px) {
+    grid-template-columns: 8rem 17rem 8rem 10rem 0;
+  }
 `;
 
 const Input = styled.input`
   border: none;
   border-radius: 4px;
   padding: 3px 6px;
+
+  ${(props) => variations[props.variation]}
 `;
+
+const variations = {
+  sticky: css`
+    position: sticky;
+    right: 0;
+  `
+};
 
 const StyledLinkButton = styled(Button).attrs({
   // as: Link,
   variation: "primary",
   size: "small",
-})``;
+})`
+  position: sticky;
+  right: 4px;
+`;
 
 const Guest = styled.div`
   font-weight: 500;
@@ -90,7 +106,15 @@ function TodayItem({ athlete }) {
 
       {isMobile && <p><IoIosArrowForward /></p>}
 
-      {statusType === "green" && <Input type="text" disabled style={{ textAlign: "center" }} value={oneMonthLater.toLocaleDateString('pt-BR')} />}
+      {statusType === "green" && (
+        <Input
+          type="text"
+          variation="sticky"
+          disabled
+          style={{ textAlign: "center" }}
+          value={oneMonthLater.toLocaleDateString('pt-BR')}
+        />
+      )}
 
       {statusType === "red" &&
         <StyledLinkButton
