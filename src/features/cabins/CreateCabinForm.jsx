@@ -9,11 +9,13 @@ import FormRow from "../../ui/FormRow";
 
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { isCreating, createCabin } = useCreateCabin();
   const { isEditing, editCabin } = useEditCabin();
   const isWorking = isCreating || isEditing;
+  console.log(isWorking)
 
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
@@ -169,7 +171,9 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
           variation="primary"
           size="medium"
           disabled={isWorking}>
-          {isEditSession ? "Editar atleta" : "Confirmar"}
+          {isWorking ? <SpinnerMini /> :
+            isEditSession ? "Editar atleta" : "Confirmar"
+          }
         </Button>
       </FormRow>
     </Form>
