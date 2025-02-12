@@ -38,8 +38,10 @@ const Form = styled.form`
     
 
     @media (max-width: 480px) {
-      width: 95%;
+      width: 100%;
       margin: auto;
+      overflow: hidden;
+      padding: 2.4rem 2.1rem;
     }
 `;
 

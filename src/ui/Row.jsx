@@ -24,7 +24,7 @@ const Row = styled.div`
       flex-direction: column;
       gap: 3.6rem;
 
-      @media (min-width: 768px) and (max-width: 1300px) {
+      @media (max-width: 1300px) {
         gap: 2rem;
       }
     `}

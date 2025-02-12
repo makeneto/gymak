@@ -20,6 +20,10 @@ const Heading = styled.h1`
         right: -29px;
       }
 
+      @media (max-width: 480px) {
+        font-size: 2.1rem;
+      }
+
       @media (max-width: 832px) {
         font-size: 2.7rem;
       }
@@ -38,6 +42,10 @@ const Heading = styled.h1`
     css`
       font-size: 2rem;
       font-weight: 500;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
     `}
     
     ${(props) =>
