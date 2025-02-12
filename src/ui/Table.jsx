@@ -67,7 +67,7 @@ const StyledHeader = styled(CommonRow)`
       }
     }
 
-    @media (max-width: 832px) {
+    @media (max-width: 480px) {
         width: 169%;
     }
 `;
