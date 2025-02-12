@@ -28,6 +28,10 @@ const Main = styled.main`
     overflow: scroll;
     padding: 3rem 3.8rem 3.4rem;
   }
+
+  @media (max-width: 480px) {
+    padding: 5rem 0.8rem 3.4rem;
+  }
 `;
 
 const Container = styled.div`

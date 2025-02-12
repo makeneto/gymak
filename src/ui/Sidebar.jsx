@@ -31,14 +31,24 @@ function Sidebar() {
     }
   `
 
+  const Div = styled.aside`
+    @media (max-width: 480px) {
+      & svg {
+        left: 2.5rem;
+      }
+    }
+  `
+
   return (
     <StyledSidebar>
       {window.innerWidth <= 832 && (
-        !menu ? (
-          <HiOutlineLockClosed onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.3rem", width: "24px", height: "24px", cursor: "pointer" }} />
-        ) : (
-          <BsMenuButton onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.5rem", width: "20px", height: "20px", cursor: "pointer" }} />
-        )
+        <Div>
+          {!menu ? (
+            <HiOutlineLockClosed onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.3rem", width: "24px", height: "24px", cursor: "pointer" }} />
+          ) : (
+            <BsMenuButton onClick={handleMenu} style={{ position: "absolute", top: "2.5rem", left: "4.5rem", width: "20px", height: "20px", cursor: "pointer" }} />
+          )}
+        </Div>
       )}
 
       <Logo />

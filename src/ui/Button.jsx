@@ -12,6 +12,10 @@ const sizes = {
     font-size: 1.4rem;
     padding: 1.2rem 1.6rem;
     font-weight: 500;
+
+    @media (max-width: 480px) {
+      padding: 0.6rem 1rem;
+    }
   `,
   medium_v1: css`
     width: 100%;
@@ -28,6 +32,10 @@ const sizes = {
     font-size: 1.6rem;
     padding: 1.2rem 2.4rem;
     font-weight: 500;
+
+    @media (max-width: 832px) {
+      padding: 0.7rem 1.4rem;
+    }
   `,
 };
 

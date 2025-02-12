@@ -46,6 +46,10 @@ const Heading = styled.h1`
       font-size: 3rem;
       font-weight: 600;
       text-align: center;
+
+      @media (max-width: 480px) {
+        font-size: 2rem;
+      }
     `}
     
   line-height: 1.4;

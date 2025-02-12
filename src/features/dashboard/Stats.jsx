@@ -1,15 +1,17 @@
+import styled from "styled-components"
+import { useMediaQuery } from 'react-responsive'
 import {
   HiOutlineBanknotes,
+  HiOutlineUserCircle,
   HiOutlineUserGroup,
   HiOutlineXCircle,
 } from "react-icons/hi2"
+import { HiOutlineLightningBolt } from "react-icons/hi"
+
 import Stat from "./Stat"
 import { formatCurrency } from "../../utils/helpers"
-import { HiOutlineLightningBolt } from "react-icons/hi"
 import { useCabins } from "../cabins/useCabins"
 import SpinnerMini from "../../ui/SpinnerMini"
-import styled from "styled-components"
-import { useMediaQuery } from 'react-responsive'
 
 const StatGrid = styled.div`
   width: 100%;
@@ -76,7 +78,7 @@ function Stats() {
         <Stat
           title="Atletas inativos"
           color="red"
-          icon={<HiOutlineXCircle />}
+          icon={<HiOutlineUserCircle />}
           value={inactiveAthletes}
         />
         <Stat
@@ -120,11 +122,5 @@ function Stats() {
     </>
   )
 }
-
-// display: grid;
-// grid-template-columns: 1fr 1fr 1fr 1fr;
-// grid-template-rows: auto 36rem auto;
-// gap: 1.3rem;
-
 
 export default Stats

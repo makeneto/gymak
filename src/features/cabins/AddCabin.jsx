@@ -3,11 +3,17 @@ import CreateCabinForm from "./CreateCabinForm"
 import Modal from "../../ui/Modal"
 
 function AddCabin() {
+
   return (
     <div>
       <Modal>
         <Modal.Open opens="cabin-form">
-          <Button variation="primary" size="medium_v1">Adicionar novo atleta</Button>
+          <Button
+            variation="primary"
+            size="medium_v1"
+          >
+            Adicionar novo atleta
+          </Button>
         </Modal.Open>
         <Modal.Window name="cabin-form">
           <CreateCabinForm />

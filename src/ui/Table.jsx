@@ -7,6 +7,10 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
+
+  @media (max-width: 832px) {
+    overflow: scroll;
+  }
 `;
 
 const CommonRow = styled.div`
@@ -61,6 +65,10 @@ const StyledHeader = styled(CommonRow)`
       & div {
         font-size: 8px;
       }
+    }
+
+    @media (max-width: 832px) {
+        width: 169%;
     }
 `;
 
@@ -117,7 +125,7 @@ const CabinsContainer = styled.div`
   overflow-y: auto;
 
   @media (min-width: 768px) and (max-width: 1300px) {
-    max-height: 60dvh;
+    max-height: 55dvh;
   }
 `;
 

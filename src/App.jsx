@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
+import { DarkModeProvider } from "./context/DarkModeContext";
 import GlobalStyles from "./styles/GlobalStyles";
 import Cabins from "./pages/Cabins";
 import Users from "./pages/Users";
@@ -12,7 +13,6 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import Account from "./pages/Account";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import { DarkModeProvider } from "./context/DarkModeContext";
 import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient({

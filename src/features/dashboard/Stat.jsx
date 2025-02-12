@@ -34,11 +34,15 @@ const Icon = styled.div`
 
 const Title = styled.h5`
   align-self: end;
-  font-size: 1rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-500);
+  
+  @media (min-width: 768px) and (max-width: 1300px) {
+    font-size: 1rem;
+  }
 `;
 
 const Value = styled.p`
@@ -48,6 +52,10 @@ const Value = styled.p`
 
   @media (max-width: 832px) {
     font-size: 2.1rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1300px) {
+    font-size: 1.6rem;
   }
 `;
 

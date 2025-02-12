@@ -26,8 +26,8 @@ const StyledTodayItem = styled.li`
     grid-template-columns: 8rem 18rem 10rem 11rem 1rem 11rem 0;
   }
 
-  @media (min-width: 833px) and (max-width: 1024px) {
-    grid-template-columns: 8rem 17rem 8rem 10rem 0;
+  @media (min-width: 833px) and (max-width: 1300px) {
+    grid-template-columns: 9rem 18rem 10rem 10rem 0;
   }
 `;
 
@@ -52,7 +52,7 @@ const StyledLinkButton = styled(Button).attrs({
   size: "small",
 })`
   position: sticky;
-  right: 4px;
+  right: 0;
 `;
 
 const Guest = styled.div`

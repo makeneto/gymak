@@ -21,6 +21,12 @@ const StyledModal = styled.div`
         overflow: scroll;
         height: 88dvh;
     }
+      
+    @media (max-width: 480px) {
+        width: 95%;
+        overflow-y: scroll;
+        padding: 4.8rem 2.8rem 4rem;
+    }
 `;
 
 const Overlay = styled.div`
