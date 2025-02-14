@@ -10,6 +10,7 @@ const StyledTable = styled.div`
 
   @media (max-width: 832px) {
     overflow: scroll;
+    font-size: 0.7rem;
   }
 `;
 
@@ -23,53 +24,52 @@ const CommonRow = styled.div`
   @media (min-width: 768px) and (max-width: 1300px) {
     grid-template-columns: 0.6fr 1.5fr 1.1fr 2.4fr 1.4fr 1fr 0.2fr;
   }
-  
+
   @media (max-width: 832px) {
-    grid-template-columns: 1.3fr 4fr 1.2fr 4.4fr 3fr 1fr 0.1fr;
+    grid-template-columns: 2fr 3fr 4.2fr 5.4fr 3fr 1fr 0.1fr;
   }
 `;
 
 const StyledHeader = styled(CommonRow)`
-    width: 63%;
-    position: fixed;
+  width: 63%;
+  position: fixed;
+  margin-left: -1px;
+  margin-top: -1px;
+  z-index: 2;
+  padding: 1.6rem 2.4rem;
+  background: var(--cabin-header);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-grey-200);
+  border-radius: 7px 7px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+  color: var(--color-grey-600);
+
+  @media (min-width: 768px) and (max-width: 1300px) {
+    width: 74%;
     margin-left: -1px;
-    margin-top: -1px;
-    z-index: 2;
-    padding: 1.6rem 2.4rem;
-    background: var(--cabin-header);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-grey-200);
-    border-radius: 7px 7px 0 0;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    font-weight: 600;
-    color: var(--color-grey-600);
+    padding: 1.2rem 2.4rem;
 
-    @media (min-width: 768px) and (max-width: 1300px) {
-      width: 74%;
-      margin-left: -1px;
-      padding: 1.2rem 2.4rem;
-
-      & div {
-        font-size: 11px;
-      }
+    & div {
+      font-size: 11px;
     }
+  }
 
-    @media (max-width: 832px) {
-      display: flex;
-      justify-content: start;
-      width: 100%;
-      position: sticky;
-      
+  @media (max-width: 832px) {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    position: sticky;
 
-      & div {
-        font-size: 8px;
-      }
+    & div {
+      font-size: 8px;
     }
+  }
 
-    @media (max-width: 480px) {
-        width: 169%;
-    }
+  @media (max-width: 480px) {
+    width: 169%;
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -159,7 +159,8 @@ function Row({ children }) {
 }
 
 function Body({ data, render }) {
-  if (!data.length) return <Empty>Nenhum atleta para mostrar no momento.</Empty>;
+  if (!data.length)
+    return <Empty>Nenhum atleta para mostrar no momento.</Empty>;
 
   return <StyledBody>{data.map(render)}</StyledBody>;
 }

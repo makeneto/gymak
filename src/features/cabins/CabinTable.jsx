@@ -65,7 +65,7 @@ function CabinTable({ searchAthletes }) {
   const Athlete = styled.div`
 
     @media (max-width: 832px) {
-      margin-right: 10.7%;
+      margin-right: 1.7%;
     }
   `
   const Contact = styled.div`

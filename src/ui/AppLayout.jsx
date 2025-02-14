@@ -22,11 +22,11 @@ const StyledAppLayout = styled.div`
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
-  overflow: ${(props) => (props.isCabinsPage ? 'hidden' : 'scroll')};
-  
+  overflow: ${(props) => (props.isCabinsPage ? "hidden" : "scroll")};
+
   @media (max-width: 832px) {
     overflow: scroll;
-    padding: 3rem 3.8rem 3.4rem;
+    padding: 3rem 1.6rem 3.4rem;
   }
 
   @media (max-width: 480px) {
@@ -48,7 +48,7 @@ const Container = styled.div`
 
 function AppLayout() {
   const location = useLocation();
-  const isCabinsPage = location.pathname.includes('cabins');
+  const isCabinsPage = location.pathname.includes("cabins");
 
   return (
     <>

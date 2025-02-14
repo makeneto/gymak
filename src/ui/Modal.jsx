@@ -16,16 +16,16 @@ const StyledModal = styled.div`
     transition: all 0.5s;
 
     @media (max-width: 832px) {
-        top: 47%;
         left: 50%;
         overflow: scroll;
-        height: 88dvh;
+        width: 100%;
+        height: 100%;
     }
       
     @media (max-width: 480px) {
         width: 95%;
         overflow-y: scroll;
-        padding: 4.8rem 2.8rem 4rem;
+        padding: 4.8rem 0 4rem;
     }
 `;
 

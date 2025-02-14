@@ -27,9 +27,13 @@ const Form = styled.form`
   ${(props) =>
     props.type === "modal" &&
     css`
-    overflow: hidden;
-    font-size: 1.4rem;
-    width: 61rem;
+      overflow: hidden;
+      font-size: 1.4rem;
+      width: 61rem;
+
+      @media (max-width: 832px) {
+        width: 100%;
+      }
 
       @media (max-width: 480px) {
         width: 100%;
@@ -38,11 +42,15 @@ const Form = styled.form`
     
 
     @media (max-width: 480px) {
-      width: 100%;
-      margin: auto;
-      overflow: hidden;
-      padding: 2.4rem 2.1rem;
-    }
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding: 2.4rem 2.1rem;
+  }
+
+  @media (max-width: 832px) {
+    padding: 3.4rem 2rem;
+  }
 `;
 
 Form.defaultProps = {

@@ -28,8 +28,11 @@ const Img = styled.img`
 const Cabin = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--color-grey-600);
   font-family: "Sono";
+
+  @media (max-width: 832px) {
+    font-size: 0.8rem;
+  }
 
   @media (min-width: 768px) and (max-width: 1300px) {
     font-size: 13px;
@@ -37,9 +40,9 @@ const Cabin = styled.div`
 `;
 
 const Price = styled.div`
-    font-family: "Sono";
-    font-weight: 500;
-    color: var(--color-green-700);
+  font-family: "Sono";
+  font-weight: 500;
+  color: var(--color-green-700);
 `;
 
 const CabinRow = React.memo(({ cabin }) => {
@@ -74,7 +77,7 @@ const CabinRow = React.memo(({ cabin }) => {
     const differenceInDays = differenceInTime / (1000 * 3600 * 24);
 
     return differenceInDays > 30;
-  }
+  };
 
   /* Se o Nome for Makene Neto, Altere sempre a data para a data atual */
   if (name === "Makene Neto") {
@@ -93,7 +96,9 @@ const CabinRow = React.memo(({ cabin }) => {
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>{contacto}</div>
-      <div className={isDateOlderThan30Days(created_at) ? 'text-red' : ''}>{formatDateTime(created_at)}</div>
+      <div className={isDateOlderThan30Days(created_at) ? "text-red" : ""}>
+        {formatDateTime(created_at)}
+      </div>
       <div>{paymentMethod}</div>
       <Price>{formatCurrency(amountPaid)}</Price>
 
@@ -131,11 +136,11 @@ const CabinRow = React.memo(({ cabin }) => {
         </Modal>
       ) : (
         <Modal>
-          <span style={{ color: 'transparent' }}>none</span>
+          <span style={{ color: "transparent" }}>none</span>
         </Modal>
       )}
     </Table.Row>
   );
-})
+});
 
 export default CabinRow;
